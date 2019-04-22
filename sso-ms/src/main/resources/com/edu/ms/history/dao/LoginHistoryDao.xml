@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.edu.ms.history.dao.LoginHistoryDao">
+
+    <resultMap id="BaseResultMap" type="com.edu.ms.history.po.LoginHistoryPO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="project_name" property="projectName" jdbcType="VARCHAR"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="ip_port" property="ipPort" jdbcType="VARCHAR"/>
+        <result column="session_id" property="sessionId" jdbcType="VARCHAR"/>
+        <result column="token" property="token" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="TINYINT"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, project_name,username, ip_port, session_id, token, `status`, create_time, update_time
+    </sql>
+
+    <insert id="save" parameterType="com.edu.ms.history.po.LoginHistoryPO">
+        insert into t_login_history
+            (id, project_name,username, ip_port, session_id, token, `status`, create_time, update_time)
+        values
+            (#{id,jdbcType=BIGINT},#{username} ,#{projectName,jdbcType=VARCHAR}, #{ipPort,jdbcType=VARCHAR}, #{sessionId,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR},
+            #{status,jdbcType=TINYINT}, now(), now())
+    </insert>
+
+    <select id="queryByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.history.po.LoginHistoryPO">
+        select
+        <include refid="Base_Column_List"/>
+        from t_login_history
+        <where>
+            <if test="projectName != null">
+                and project_name = #{projectName,jdbcType=VARCHAR}
+            </if>
+            <if test="username!= null">
+                and username = #{username}
+            </if>
+            <if test="ipPort != null">
+                and ip_port = #{ipPort,jdbcType=VARCHAR}
+            </if>
+            <if test="sessionId != null">
+                and session_id = #{sessionId,jdbcType=VARCHAR}
+            </if>
+            <if test="token != null">
+                and token = #{token,jdbcType=VARCHAR}
+            </if>
+            <if test="status != null">
+                and `status` = #{status,jdbcType=TINYINT}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+        limit 1
+    </select>
+
+    <select id="listByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.history.po.LoginHistoryPO">
+        select
+        <include refid="Base_Column_List"/>
+        from t_login_history
+        <where>
+            <if test="projectName != null">
+                and project_name = #{projectName,jdbcType=VARCHAR}
+            </if>
+            <if test="ipPort != null">
+                and ip_port = #{ipPort,jdbcType=VARCHAR}
+            </if>
+            <if test="sessionId != null">
+                and session_id = #{sessionId,jdbcType=VARCHAR}
+            </if>
+            <if test="token != null">
+                and token = #{token,jdbcType=VARCHAR}
+            </if>
+            <if test="status != null">
+                and `status` = #{status,jdbcType=TINYINT}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateById" parameterType="com.edu.ms.history.po.LoginHistoryPO">
+        update t_login_history
+        <set>
+            <if test="projectName != null">
+                project_name = #{projectName,jdbcType=VARCHAR},
+            </if>
+            <if test="ipPort != null">
+                ip_port = #{ipPort,jdbcType=VARCHAR},
+            </if>
+            <if test="sessionId != null">
+                session_id = #{sessionId,jdbcType=VARCHAR},
+            </if>
+            <if test="token != null">
+                token = #{token,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=TINYINT},
+            </if>
+            update_time = now(),
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findPage" parameterType="com.edu.ms.history.po.LoginHistoryPO" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_login_history
+        <include refid="queryParams"/>
+        order by id desc
+        <if test="offset != null and limit != null">
+            LIMIT #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="countAll" resultType="java.lang.Integer" parameterType="com.edu.ms.history.po.LoginHistoryPO">
+        SELECT
+        COUNT(*)
+        from t_login_history
+        <include refid="queryParams"/>
+    </select>
+
+    <sql id="queryParams">
+        <where>
+            <if test="projectName != null and projectName != ''">
+                and project_name = #{projectName,jdbcType=VARCHAR}
+            </if>
+            <if test="username!= null and username !=''">
+                and username = #{username}
+            </if>
+            <if test="token != null and token != ''">
+                and token = #{token,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+</mapper>

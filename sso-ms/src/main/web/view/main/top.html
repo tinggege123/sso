@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MS - 登录</title>
+    <!-- 引入bootstrap样式 -->
+    <link href="${ctxPath}/static/tabledata/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap-table样式 -->
+    <link href="${ctxPath}/static/tabledata/bootstrap-table.min.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="${ctxPath}/static/tabledata/jquery.min.js"></script>
+    <script src="${ctxPath}/static/tabledata/bootstrap.min.js"></script>
+
+    <!-- bootstrap-table.min.js -->
+    <script src="${ctxPath}/static/tabledata/bootstrap-table.min.js"></script>
+    <!-- 引入中文语言包 -->
+    <script src="${ctxPath}/static/tabledata/bootstrap-table-zh-CN.min.js"></script>
+    <script src="${ctxPath}/static/commonjs/common.js"></script>
+</head>
+
+<body>
+
+<div>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">添加子系统</h4>
+                </div>
+
+                <form class="form-horizontal" role="form" style="padding: 10px" id="projectFormId">
+                    <fieldset>
+                        <legend>配置数据源</legend>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="ds_host">子系统域名</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="ds_host" name="clientDomain" type="text"
+                                       placeholder="https://192.168.1.161"/>
+                            </div>
+                            <label class="col-sm-2 control-label" for="ds_name">子系统端口</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="ds_name" name="clientPort" type="text"
+                                       placeholder="8080"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="ds_username">服务端域名</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="ds_username" name="serverDomain" type="text"
+                                       placeholder="https://192.168.1.161"/>
+                            </div>
+                            <label class="col-sm-2 control-label" for="ds_password">服务端端口</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="ds_password" name="serverPort" type="password"
+                                       placeholder="80"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>服务名称</legend>
+                        <div class="form-group">
+                            <label for="data" class="col-sm-2 control-label">子系统名称</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" name="projectName" id="data" type="text"
+                                       placeholder="该系统名称必须唯一，请慎重填写（finance-route-center）"/>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" onclick="addData()" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    </button>
+    <table id="table">
+    </table>
+
+    <div id="toolbar">
+        <form class="form-inline pull-right" id="tableQueryForm">
+            <div class="form-group">
+                用户名：<input type="text" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+                昵称：<input type="text" class="form-control" name="realname" placeholder="">
+            </div>
+            <button id="btn_query" type="button" class="btn btn-default" style="padding:10px">
+                <span aria-hidden="true"></span>查询
+            </button>
+            <button id="btn_clear" type="button" class="btn btn-default" style="padding:10px">
+                <span aria-hidden="true"></span>清空
+            </button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
+<script>
+    //定义全局变量
+    var tableId = "table";
+    var tableUrl = "${ctxPath}/table/dataGrid";
+    var tableQueryForm = "tableQueryForm";
+    var btnQuery = "btn_query";
+    var btnClear = "btn_clear";
+
+    $(function () {
+
+        //1.初始化Table
+        var oTable = new TableInit();
+        oTable.Init();
+
+        $("#" + btnQuery).click(function () {
+            $("#" + tableId).bootstrapTable('refresh');
+        });
+        $("#" + btnClear).click(function () {
+            clearForm(tableQueryForm);
+            $("#" + tableId).bootstrapTable('refresh');
+        })
+    });
+
+
+    var TableInit = function () {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function () {
+            $('#' + tableId).bootstrapTable({
+                url: tableUrl,         //请求后台的URL（*）
+                method: 'get',                      //请求方式（*）
+                toolbar: '#toolbar',                //工具按钮用哪个容器
+                striped: true,                      //是否显示行间隔色
+                cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                pagination: true,                   //是否显示分页（*）
+                sortable: false,                     //是否启用排序
+                sortOrder: "asc",                   //排序方式
+                queryParams: oTableInit.queryParams,//传递参数（*）
+                sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                pageNumber: 1,                       //初始化加载第一页，默认第一页
+                pageSize: 10,                       //每页的记录行数（*）
+                pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                search: false,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                strictSearch: true,
+                showColumns: true,                  //是否显示所有的列
+                showRefresh: true,                  //是否显示刷新按钮
+                minimumCountColumns: 2,             //最少允许的列数
+                clickToSelect: true,                //是否启用点击选中行
+                height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+                cardView: false,                    //是否显示详细视图
+                detailView: false,
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: 'id',
+                    title: '序号'
+                }, {
+                    field: 'username',
+                    title: '名称'
+                }, {
+                    field: 'realname',
+                    title: '真名'
+                }, {
+                    title: '操作',
+                    field: 'id',
+                    align: 'center',
+                    formatter: function (value, row, index) {
+                        var e = '<button href="#" class="btn btn-primary"  onclick="edit(\'' + row.id + '\')">编辑</button> ';
+                        var d = '<button href="#" class="btn btn-danger"  onclick="del(\'' + row.id + '\')">删除</button> ';
+                        return e + d;
+                    }
+                }]
+            });
+        };
+
+        //得到查询的参数
+        oTableInit.queryParams = function (params) {
+            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                limit: params.limit,   //页面大小
+                offset: params.offset
+            };
+            //继承表单，进行参数匹配
+            $.extend(temp, getFormJson($("#" + tableQueryForm)));
+            return temp;
+        };
+        return oTableInit;
+    };
+
+    /**
+     * 子系统添加方法
+     */
+    function addData() {
+        var data = $("#projectFormId").serialize();
+        $.ajax({
+            type: "GET",                      //请求类型
+            url: "${ctxPath}/projectSetting/saveProject",           //URL
+            data: data,   //传递的参数
+            ataType: "json",                 //返回的数据类型
+            success: function (data) {          //data就是返回的json类型的数据
+                if (data.status = 200) {
+                    $.download("${ctxPath}/projectSetting/downloadFile", "post", data.data);
+                } else {
+                    alert("系统异常，请联系管理员");
+                }
+
+            },
+            error: function (data) {
+                alert("系统异常，请联系管理员");
+            }
+        });
+    }
+
+    // 定义到jQuery全局变量下-文件下载
+    jQuery.download = function (url, method, filedir) {
+        jQuery('<form action="' + url + '" method="' + (method || 'post') + '">' +  // action请求路径及推送方法
+            '<input type="text" name="fileName" value="' + filedir + '"/>' + // 文件路径
+            '</form>')
+            .appendTo('body').submit().remove();
+        //var newTab = window.open('about:blank')
+        //newTab.location.href = url;
+    };
+
+</script>

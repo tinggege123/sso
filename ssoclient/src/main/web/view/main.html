@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>主页</title>
+    <link href="${ctxPath}/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="${ctxPath}/static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel='stylesheet' type='text/css'/>-->
+    <script src="${ctxPath}/static/js/jquery.js"></script>
+    <script src="${ctxPath}/static/myjs/LoginClient.js"></script>
+</head>
+<body>
+<!-- header -->
+<div class="banner">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="main" style="font-size: 20px"><img src="${ctxPath}/static/images/ssologo.png" class="img-responsive"
+                                                                  alt=""/>单点登录</a>
+            </div>
+            <div class="head-nav">
+                <span class="menu"> </span>
+                <ul>
+                    <li class="active"><a href="main">主页</a></li>
+                    <li><a href="services">服务</a></li>
+                    <li><a href="contact">建议</a></li>
+                    <li><a  href="javascript:void(0)" onclick="mainLogout()">退出</a></li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <!-- script-for-nav -->
+            <script type="application/javascript">
+                $("span.menu").click(function () {
+                    $(".head-nav ul").slideToggle(300, function () {
+                        // Animation complete.
+                    });
+                });
+            </script>
+            <!-- script-for-nav -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="wmuSlider example1 section" id="section-1">
+            <article style="position: absolute; width: 100%; opacity: 0;">
+                <div class="banner-info">
+                    <div class="col-md-6 info1">
+                        <img src="${ctxPath}/static/images/phone.png" class="img-responsive" alt=""/>
+                    </div>
+                    <div class="col-md-6 info">
+                        <h1>获取最快的服务</h1>
+                        <p>获取最便捷的服务</p>
+                        <p>获取最安全的单点登录服务</p>
+                        <a class="sign" href="#">登录</a>
+                        <a href="#"><i class="tick"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </article>
+            <article style="position: absolute; width: 100%; opacity: 0;">
+                <div class="banner-info">
+                    <div class="col-md-6 info1">
+                        <img src="${ctxPath}/static/images/phone.png" class="img-responsive" alt=""/>
+                    </div>
+                    <div class="col-md-6 info">
+                        <h1>获取最快的服务</h1>
+                        <p>获取最便捷的服务</p>
+                        <p>获取最安全的单点登录服务</p>
+                        <a class="sign" href="#">登录</a>
+                        <a href="#"><i class="tick"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </article>
+            <article style="position: absolute; width: 100%; opacity: 0;">
+                <div class="banner-info">
+                    <div class="col-md-6 info1">
+                        <img src="${ctxPath}/static/images/phone.png" class="img-responsive" alt=""/>
+                    </div>
+                    <div class="col-md-6 info">
+                        <h1>获取最快的服务</h1>
+                        <p>获取最便捷的服务</p>
+                        <p>获取最安全的单点登录服务</p>
+                        <a class="sign" href="#">登录</a>
+                        <a href="#"><i class="tick"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </article>
+            <ul class="wmuSliderPagination">
+                <li><a href="#" class="">0</a></li>
+                <li><a href="#" class="">1</a></li>
+                <li><a href="#" class="">2</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- script -->
+    <script src="${ctxPath}/static/js/jquery.wmuSlider.js"></script>
+    <script  type="application/javascript">
+        $('.example1').wmuSlider();
+    </script>
+    <!-- script -->
+</div>
+<!-- header -->
+<!-- content -->
+<div class="contrary">
+    <div class="container">
+        <div class="col-md-4 penc">
+            <i class="pencil"></i>
+            <h3>sso介绍</h3>
+            <p>单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。</p>
+        </div>
+        <div class="col-md-4 devc">
+            <i class="device"></i>
+            <h3>sso展示</h3>
+            <p>传统的单点登录系统都是war包下载方式来让广大的开发者来进行扩展，本次采用前后端分离的方式进行单点登录的研发，让开发者可以短时间内集成一套属于自己的单点登录。</p>
+        </div>
+        <div class="col-md-4 cak">
+            <i class="cake"></i>
+            <h3>sso功能</h3>
+            <p>本站提供有基于session cookie的方式的单点登录，该方式易于快速的集成，用户在十分钟就可以完成该套系统的集成，该站也有基于缓存的方式的单点登录，该方式是中小型应用的首选</p>
+        </div>
+    </div>
+</div>
+<!-- content -->
+<div class="tlinks">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
+<!-- shopping -->
+<div class="shopping">
+    <div class="container">
+        <div class="col-md-6 cart">
+            <h2>您的需求框</h2>
+            <img src="${ctxPath}/static/images/basket.png" class="img-responsive" alt=""/>
+        </div>
+        <div class="col-md-4 bullet">
+            <h4>您的需求 AND 解决方案</h4>
+            <p>
+                随着公司业务的快速迭代，公司的ERP系统从原来的一个，两个发展成为十多个，当管理员管理这些系统时，必须要进行登录，如果每次使用十多个系统都需要登录，那无疑是相当浪费时间。在网络上的CAS技术致力用该案例的方案，但是耦合度太高，对于很多想完善登录系统的用户来说是一个负担。该案例的设想就是开发者在需要单点登录，导入两个jar包就可以实现单点登录。</p>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <p>Author: shengting_wang From:<a href="https://www.fjnu.edu.cn/" target="_blank" title="福建师范大学">福建师范大学</a></p>
+    </div>
+</div>
+</body>
+
+</html>

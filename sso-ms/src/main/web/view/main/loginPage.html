@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <title>Simplify Admin</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+
+	    <!-- Bootstrap core CSS -->
+	    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Font Awesome -->
+		<link href="../../static/css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- ionicons -->
+		<link href="../../static/css/ionicons.min.css" rel="stylesheet">
+		
+		<!-- Simplify -->
+		<link href="../../static/css/simplify.min.css" rel="stylesheet">
+	
+  	</head>
+
+  	<body class="overflow-hidden light-background">
+		<div class="wrapper no-navigation preload">
+			<div class="sign-in-wrapper">
+				<div class="sign-in-inner">
+					<div class="login-brand text-center">
+						<i class="fa fa-database m-right-xs"></i> 单点登录 <strong class="text-skin">管理系统</strong>
+					</div>
+
+					<form action="${ctxPath}/login" name="msLogin" method="post">
+						<div class="form-group m-bottom-md">
+							<input type="text" class="form-control" name="username" placeholder="Phone">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" name="password" placeholder="Password">
+						</div>
+
+						<div class="form-group">
+							<div class="custom-checkbox">
+								<input type="checkbox" id="chkRemember">
+								<label for="chkRemember"></label>
+							</div>
+							记住密码
+						</div>
+
+						<div class="m-top-md p-top-sm">
+							<a href="javascript:document.msLogin.submit();" class="btn btn-success block">登录</a>
+						</div>
+
+						<div class="m-top-md p-top-sm">
+							<div class="font-12 text-center m-bottom-xs">
+								<a href="#" style="color: red" class="font-12" id="showMsg">${msg}</a>
+							</div>
+							<!--<div class="font-12 text-center m-bottom-xs">Do not have an account?</div>-->
+							<!--<a href="../signup.html" class="btn btn-default block">Create an accounts</a>-->
+						</div>
+					</form>
+				</div><!-- ./sign-in-inner -->
+			</div><!-- ./sign-in-wrapper -->
+		</div><!-- /wrapper -->
+
+		<a href="" id="scroll-to-top" class="hidden-print"><i class="icon-chevron-up"></i></a>
+
+	    <!-- Le javascript
+	    ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+		
+		<!-- Jquery -->
+		<script src="../../static/js/jquery-1.11.1.min.js"></script>
+		
+		<!-- Bootstrap -->
+	    <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+		
+		<!-- Slimscroll -->
+		<script src='../../static/js/jquery.slimscroll.min.js'></script>
+		
+		<!-- Popup Overlay -->
+		<script src='../../static/js/jquery.popupoverlay.min.js'></script>
+
+		<!-- Modernizr -->
+		<script src='../../static/js/modernizr.min.js'></script>
+		
+		<!-- Simplify -->
+		<script src="../../static/js/simplify/simplify.js"></script>
+	
+  	</body>
+</html>

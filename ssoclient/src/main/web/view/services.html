@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>服务</title>
+    <link href="${ctxPath}/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="${ctxPath}/static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="${ctxPath}/static/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="${ctxPath}/static/myjs/LoginClient.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel='stylesheet' type='text/css'/>-->
+    <script src="${ctxPath}/static/js/jquery.min.js"></script>
+    <link rel="stylesheet" href=${ctxPath}/static/css/swipebox.css"/>
+    <script src="${ctxPath}/static/js/jquery.swipebox.min.js"></script>
+    <script type="text/javascript" src="${ctxPath}/static/myjs/LoginClient.js"></script>
+    <script type="text/javascript" src="${ctxPath}/static/js/jquery.mixitup.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $(".swipebox").swipebox();
+        });
+    </script>
+</head>
+<body>
+
+<div class="banner1">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="main" style="font-size: 20px"><img src="${ctxPath}/static/images/ssologo.png"
+                                                             class="img-responsive"
+                                                             alt=""/>单点登录</a>
+            </div>
+            <div class="head-nav">
+                <span class="menu"> </span>
+                <ul>
+                    <li><a href="main">主页</a></li>
+                    <li class="active"><a href="services">服务</a></li>
+                    <li><a href="contact">建议</a></li>
+                    <li><a href="javascript:void(0)" onclick="mainLogout()">退出</a></li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+
+            <script>
+                $("span.menu").click(function () {
+                    $(".head-nav ul").slideToggle(300, function () {
+                    });
+                });
+            </script>
+
+        </div>
+    </div>
+    <div class="container">
+        <h2>sso服务</h2>
+    </div>
+</div>
+
+<div class="service-section">
+    <div class="container">
+        <h2>sso服务</h2>
+
+        <div class="portfolio" id="portfolio">
+            <div id="portfoliolist">
+                <div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card"
+                     style="display: inline-block; opacity: 1;">
+                    <div class="portfolio-wrapper grid_box">
+                        <a href="${ctxPath}/static/images/bc2.jpg" class="swipebox" title="Image Title"> <img
+                                src="${ctxPath}/static/images/bc2.jpg"
+                                class="img-responsive"
+                                alt=""/><span
+                                class="zoom-icon"></span> </a>
+                        <h3>登录服务</h3>
+                        <p>作为单点登录的最基础的服务。会给开发者提交一个接口，开发者可以自定义数据源。</p>
+                        <a class="read" href="#">阅读更多</a>
+                    </div>
+                </div>
+                <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app"
+                     style="display: inline-block; opacity: 1;">
+                    <div class="portfolio-wrapper grid_box">
+                        <a href="${ctxPath}/static/images/food.jpg" class="swipebox" title="Image Title"> <img
+                                src="${ctxPath}/static/images/food.jpg"
+                                class="img-responsive"
+                                alt=""/><span
+                                class="zoom-icon"></span> </a>
+                        <h3>注销服务</h3>
+                        <p>有登录必然有注销，该服务开发者无需关系，已经给开发者封装好，开发者只需调用api即可</p>
+                        <a class="read" href="#">阅读更多</a>
+                    </div>
+                </div>
+
+                <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app"
+                     style="display: inline-block; opacity: 1;">
+                    <div class="portfolio-wrapper grid_box">
+                        <a href="${ctxPath}/static/images/pho.jpg" class="swipebox" title="Image Title"> <img
+                                src="${ctxPath}/static/images/pho.jpg"
+                                class="img-responsive"
+                                alt=""/><span
+                                class="zoom-icon"></span> </a>
+                        <h3>记住密码服务</h3>
+                        <p>对于一些系统需要登录过程中记住密码，给开发者提交可动态配置化的服务</p>
+                        <a class="read" href="#">阅读更多</a>
+                    </div>
+                </div>
+                <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app"
+                     style="display: inline-block; opacity: 1;">
+                    <div class="portfolio-wrapper grid_box">
+                        <a href="${ctxPath}/static/images/brand.jpg" class="swipebox" title="Image Title"> <img
+                                src="${ctxPath}/static/images/brand.jpg"
+                                class="img-responsive"
+                                alt=""/><span
+                                class="zoom-icon"></span> </a>
+                        <h3>权限配置服务</h3>
+                        <p>作为一套系统最重要的服务当然包括权限配置服务,该功能尚未进行开发，敬请期待</p>
+                        <a class="read" href="#">阅读更多</a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+
+        <!-- Script for gallery Here -->
+
+        <script type="text/javascript">
+            $(function () {
+
+                var filterList = {
+
+                    init: function () {
+
+                        $('#portfoliolist').mixitup({
+                            targetSelector: '.portfolio',
+                            filterSelector: '.filter',
+                            effects: ['fade'],
+                            easing: 'snap',
+                            // call the hover effect
+                            onMixEnd: filterList.hoverEffect()
+                        });
+
+                    },
+
+                    hoverEffect: function () {
+
+                        // Simple parallax effect
+                        $('#portfoliolist .portfolio').hover(
+                            function () {
+                                $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                                $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
+                            },
+                            function () {
+                                $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                                $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                            }
+                        );
+
+                    }
+
+                };
+
+                // Run the show!
+                filterList.init();
+
+
+            });
+        </script>
+        <!-- portfolio-section  -->
+
+    </div>
+</div>
+<!-- service -->
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <p>Author: shengting_wang From:<a href="https://www.fjnu.edu.cn/" target="_blank" title="福建师范大学">福建师范大学</a></p>
+    </div>
+</div>
+</body>
+</html>

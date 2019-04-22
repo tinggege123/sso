@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>单点登录</title>
+    <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/animate.css}"/>
+    <link rel="stylesheet" th:href="@{/css/prettyPhoto.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+</head>
+<body data-spy="scroll" data-target=".main-nav">
+
+<section id="section-banner">
+    <div class="container">
+        <div class="row">
+            <div class="banner-content wow fadeInRight">
+                <h2 class="title">
+                    SSO-单点登录<br/>
+                    <span>
+				From:福师大 <br/>
+							Describe:大型系统登录的最佳方案	</span>
+                </h2>
+                <button class="btn btn-default" id="loginEnjoy">单点登录体验</button>
+                <a class="btn btn-default" href="http://http://172.22.42.86:8079/ssoClient/index.html">单点商城</a>
+                <button class="btn btn-default" id="logout">退出</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script th:src="@{/js/jquery.js}"></script>
+<script th:src="@{/myjs/LoginClient.js}"></script>
+</body>
+</html>

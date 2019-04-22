@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>意见</title>
+    <link href="${ctxPath}/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="${ctxPath}/static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="${ctxPath}/static/assets/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel='stylesheet' type='text/css'/>-->
+
+    <script src="${ctxPath}/static/js/jquery.js"></script>
+    <script src="${ctxPath}/static/myjs/LoginClient.js"></script>
+</head>
+<body>
+<!-- header -->
+<div class="banner1">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="main" style="font-size: 20px"><img src="${ctxPath}/static/images/ssologo.png" class="img-responsive"
+                                                                  alt=""/>单点登录</a>
+            </div>
+            <div class="head-nav">
+                <span class="menu"> </span>
+                <ul>
+                    <li><a href="main">主页</a></li>
+                    <li><a href="services">服务</a></li>
+                    <li class="active"><a href="contact">建议</a></li>
+                    <li><a href="javascript:void(0)" onclick="mainLogout()">退出</a></li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <!-- script-for-nav -->
+            <script>
+                $("span.menu").click(function () {
+                    $(".head-nav ul").slideToggle(300, function () {
+                        // Animation complete.
+                    });
+                });
+            </script>
+            <!-- script-for-nav -->
+        </div>
+    </div>
+    <div class="container">
+        <h2>提议</h2>
+    </div>
+</div>
+
+<div class="contact-section">
+    <div class="container">
+
+        <div class="get-touch">
+            <h5>欢迎您提供宝贵的意见</h5>
+            <p>该设计方案是本人一个设想，当前只是将基础功能完成，对于导入两个jar包进行sso的实现现在尚未实现，如果您有一些更好的想法，可以留言或者发邮箱，谢谢！</p>
+            <p>邮箱：1402977285@qq.com</p>
+            <div class="col-md-12 get-touch1">
+                <form>
+                    <input type="text" class="text" value="您的邮箱" onfocus="this.value = '';"
+                           onblur="if (this.value == '') {this.value = '您的邮箱';}"/>
+                    <input type="text" class="text" value="您的称呼" onfocus="this.value = '';"
+                           onblur="if (this.value == '') {this.value = '您的称呼';}"/>
+                </form>
+                <div class="text-field-area-">
+                    <form>
+                        <textarea value="MESSAGE:" onfocus="if(this.value == '您的意见') this.value='';"
+                                  onblur="if(this.value == '') this.value='您的意见';">您的意见</textarea>
+                    </form>
+                </div>
+                <div class="button-1">
+                    <form>
+                        <input type="submit" value="提交" style="display:block;margin:0 auto;width:100%;">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <p>Author: shengting_wang From:<a href="https://www.fjnu.edu.cn/" target="_blank" title="福建师范大学">福建师范大学</a></p>
+    </div>
+</div>
+
+</body>
+</html>

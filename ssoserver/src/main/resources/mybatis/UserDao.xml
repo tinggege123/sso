@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.business.persistence.dao.UserDao">
+
+    <select id="findUserInfo" resultType="com.edu.business.persistence.po.UserPO">
+    select * from t_sys_user limit 1
+   </select>
+
+    <select id="selectData" parameterType="com.edu.business.persistence.po.UserPO" resultType="com.edu.business.persistence.po.UserPO">
+      select * from t_sys_user
+       where
+      username=#{username} and password=#{password}
+    </select>
+    
+    <select id="selectDataByUsername" parameterType="com.edu.business.persistence.po.UserPO" resultType="com.edu.business.persistence.po.UserPO">
+      select * from t_sys_user
+       where
+      username=#{username}
+    </select>
+
+    <select id="getTokenByCookie" parameterType="com.edu.business.persistence.po.UserPO" resultType="com.edu.business.persistence.po.UserPO">
+        select * from t_sys_user
+          where
+        token = #{ssoToken}
+    </select>
+
+    <update id="updateToken" parameterType="java.lang.String">
+        update t_sys_user
+        set token = '11111' where token = #{token}
+    </update>
+
+    <update id="updateTokenById" parameterType="com.edu.business.persistence.po.UserPO">
+        update t_sys_user
+        set token = #{token} where username = #{username}
+    </update>
+
+    <insert id="save" parameterType="com.edu.business.persistence.po.UserPO">
+       insert into t_sys_user
+            (id, username, realname, `password`, is_use, login_date, salt, token, create_time, update_time)
+        values
+            (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{isUse,jdbcType=VARCHAR},
+            #{loginDate,jdbcType=TIMESTAMP}, #{salt,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, now(), now())
+    </insert>
+    
+
+</mapper>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>单点登录</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- 引入bootstrap样式 -->
+	<link href="${ctxPath}/static/tabledata/bootstrap.min.css" rel="stylesheet">
+	<!-- 引入bootstrap-table样式 -->
+	<link href="${ctxPath}/static/tabledata/bootstrap-table.min.css" rel="stylesheet">
+
+	<!-- jquery -->
+	<script src="${ctxPath}/static/tabledata/jquery.min.js"></script>
+	<script src="${ctxPath}/static/tabledata/bootstrap.min.js"></script>
+
+	<!-- bootstrap-table.min.js -->
+	<script src="${ctxPath}/static/tabledata/bootstrap-table.min.js"></script>
+	<!-- 引入中文语言包 -->
+	<script src="${ctxPath}/static/tabledata/bootstrap-table-zh-CN.min.js"></script>
+	<!-- Font Awesome -->
+	<link href="../../static/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- ionicons -->
+	<link href="../../static/css/ionicons.min.css" rel="stylesheet">
+
+	<!-- Morris -->
+	<link href="../../static/css/morris.css" rel="stylesheet"/>
+
+	<!-- Datepicker -->
+	<link href="../../static/css/datepicker.css" rel="stylesheet"/>
+
+	<!-- Animate -->
+	<link href="../../static/css/animate.min.css" rel="stylesheet">
+
+	<!-- Owl Carousel -->
+	<link href="../../static/css/owl.carousel.min.css" rel="stylesheet">
+	<link href="../../static/css/owl.theme.default.min.css" rel="stylesheet">
+
+	<!-- Simplify -->
+	<link href="../../static/css/simplify.min.css" rel="stylesheet">
+
+</head>
+
+<body class="overflow-hidden">
+<div class="wrapper preload">
+	<div class="sidebar-right">
+		<div class="sidebar-inner scrollable-sidebar">
+			<div class="sidebar-header clearfix">
+				<input class="form-control dark-input" placeholder="Search" type="text">
+				<div class="btn-group pull-right">
+					<a href="#" class="sidebar-setting" data-toggle="dropdown"><i class="fa fa-cog fa-lg"></i></a>
+					<ul class="dropdown-menu pull-right flipInV">
+						<li><a href="#"><i class="fa fa-circle text-danger"></i><span class="m-left-xs">Busy</span></a>
+						</li>
+						<li><a href="#"><i class="fa fa-circle-o"></i><span class="m-left-xs">Turn Off Chat</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="title-block">
+				Group Chat
+			</div>
+			<div class="content-block">
+				<ul class="sidebar-list">
+					<li>
+						<a href="#">
+							<i class="fa fa-circle-o text-success"></i><span class="m-left-xs">Close Friends</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-circle-o text-success"></i><span class="m-left-xs">Business</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="title-block">
+				Favorites
+			</div>
+			<div class="content-block">
+				<ul class="sidebar-list">
+					<li>
+						<a href="#" class="clearfix">
+							<img src="../../static/images/profile/profile2.jpg" class="img-circle" alt="user avatar">
+							<div class="chat-detail m-left-sm">
+								<div class="chat-name">
+									John Doe
+								</div>
+								<div class="chat-message">
+									Where are you?
+								</div>
+							</div>
+							<div class="chat-status">
+								<i class="fa fa-circle-o text-success"></i>
+							</div>
+							<div class="chat-alert">
+								<span class="badge badge-purple bounceIn animation-delay2">2</span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="clearfix">
+							<img src="../../static/images/profile/profile3.jpg" class="img-circle" alt="user avatar">
+							<div class="chat-detail m-left-sm">
+								<div class="chat-name">
+									Jane Doe
+								</div>
+								<div class="chat-message">
+									Hello
+								</div>
+							</div>
+							<div class="chat-status">
+								<i class="fa fa-circle-o text-success"></i>
+							</div>
+							<div class="chat-alert">
+								<span class="badge badge-info bounceIn animation-delay2">1</span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="clearfix">
+							<img src="../../static/images/profile/profile4.jpg" class="img-circle" alt="user avatar">
+							<div class="chat-detail m-left-sm">
+								<div class="chat-name">
+									John Doe
+								</div>
+								<div class="chat-message">
+									See you again next week.
+								</div>
+							</div>
+							<div class="chat-status">
+								<i class="fa fa-circle-o text-danger"></i>
+							</div>
+							<div class="chat-alert">
+								<i class="fa fa-check text-success"></i>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="clearfix">
+							<img src="../../static/images/profile/profile5.jpg" class="img-circle" alt="user avatar">
+							<div class="chat-detail m-left-sm">
+								<div class="chat-name">
+									John Doe
+								</div>
+								<div class="chat-message">
+									Hello, Are you there?
+								</div>
+							</div>
+							<div class="chat-status">
+								<i class="fa fa-circle-o text-danger"></i>
+							</div>
+							<div class="chat-alert">
+								<i class="fa fa-reply"></i>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="title-block">
+				More friends
+			</div>
+			<div class="content-block">
+				<ul class="sidebar-list">
+					<li>
+						<a href="#" class="clearfix">
+							<img src="../../static/images/profile/profile6.jpg" class="img-circle" alt="user avatar">
+							<div class="chat-detail m-left-sm">
+								<div class="chat-name">
+									John Doe
+								</div>
+								<div class="chat-message">
+									Where are you?
+								</div>
+							</div>
+							<div class="chat-status">
+								<i class="fa fa-circle-o text-success"></i>
+							</div>
+							<div class="chat-alert">
+								<span class="badge badge-success bounceIn animation-delay2">2</span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="clearfix">
+							<img src="../../static/images/profile/profile7.jpg" class="img-circle" alt="user avatar">
+							<div class="chat-detail m-left-sm">
+								<div class="chat-name">
+									Jane Doe
+								</div>
+								<div class="chat-message">
+									Hello
+								</div>
+							</div>
+							<div class="chat-status">
+								<i class="fa fa-circle-o text-success"></i>
+							</div>
+							<div class="chat-alert">
+								<span class="badge badge-danger bounceIn animation-delay2">1</span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="clearfix">
+							<img src="../../static/images/profile/profile8.jpg" class="img-circle" alt="user avatar">
+							<div class="chat-detail m-left-sm">
+								<div class="chat-name">
+									John Doe
+								</div>
+								<div class="chat-message">
+									See you again next week.
+								</div>
+							</div>
+							<div class="chat-status">
+								<i class="fa fa-circle-o text-danger"></i>
+							</div>
+							<div class="chat-alert">
+								<i class="fa fa-check text-success"></i>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="clearfix">
+							<img src="../../static/images/profile/profile9.jpg" class="img-circle" alt="user avatar">
+							<div class="chat-detail m-left-sm">
+								<div class="chat-name">
+									John Doe
+								</div>
+								<div class="chat-message">
+									Hello, Are you there?
+								</div>
+							</div>
+							<div class="chat-status">
+								<i class="fa fa-circle-o text-danger"></i>
+							</div>
+							<div class="chat-alert">
+								<i class="fa fa-reply"></i>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div><!-- sidebar-inner -->
+	</div><!-- sidebar-right -->
+	<header class="top-nav">
+		<div class="top-nav-inner">
+			<div class="nav-header">
+				<button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleSM">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<ul class="nav-notification pull-right">
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog fa-lg"></i></a>
+						<span class="badge badge-danger bounceIn">1</span>
+						<ul class="dropdown-menu dropdown-sm pull-right user-dropdown">
+							<li class="user-avatar">
+								<img src="../../static/images/ting.jpg" alt="" class="img-circle">
+								<div class="user-content">
+									<h5 class="no-m-bottom">超级管理员</h5>
+								</div>
+							</li>
+
+							<li class="divider"></li>
+							<li>
+								<a href="loginPage.html">退出</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<a href="index.html" class="brand">
+					<i class="fa fa-database"></i><span class="brand-name">SSO</span>
+				</a>
+			</div>
+			<div class="nav-container">
+				<button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleLG">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<ul class="nav-notification">
+					<li class="search-list">
+						<div class="search-input-wrapper">
+							<div class="search-input">
+								<input type="text" class="form-control input-sm inline-block">
+								<a href="#" class="input-icon text-normal"><i class="ion-ios7-search-strong"></i></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="pull-right m-right-sm">
+					<div class="user-block hidden-xs">
+						<a href="#" id="userToggle" data-toggle="dropdown">
+							<img src="../../static/images/ting.jpg" alt=""
+								 class="img-circle inline-block user-profile-pic">
+							<div class="user-detail inline-block">
+								超级管理员
+								<i class="fa fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="panel border dropdown-menu user-panel">
+							<div class="panel-body paddingTB-sm">
+								<ul>
+									<li>
+										<a href="loginPage.html">
+											<i class="fa fa-power-off fa-lg"></i><span class="m-left-xs">退出</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- ./top-nav-inner -->
+	</header>
+	<aside class="sidebar-menu fixed">
+		<div class="sidebar-inner scrollable-sidebar">
+			<div class="main-menu">
+				<ul class="accordion">
+					<li class="menu-header">
+						Main Menu
+					</li>
+					<li class="bg-palette1">
+						<a href="index.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-home fa-lg"></i></span>
+										<span class="text m-left-sm">主页</span>
+									</span>
+							<span class="menu-content-hover block">
+										主页
+									</span>
+						</a>
+					</li>
+					<li class="bg-palette2 active">
+						<a href="user.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-desktop fa-lg"></i></span>
+										<span class="text m-left-sm">用户管理</span>
+									</span>
+							<span class="menu-content-hover block">
+										用户
+									</span>
+						</a>
+					</li>
+					<li class="openable bg-palette3">
+						<a href="#">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
+										<span class="text m-left-sm">登录记录管理</span>
+										<span class="submenu-icon"></span>
+									</span>
+							<span class="menu-content-hover block">
+										记录
+									</span>
+						</a>
+						<ul class="submenu bg-palette4">
+							<li><a href="userToken.html"><span class="submenu-label">登录记录</span></a></li>
+							<li><a href="loginHistory.html"><span class="submenu-label">各子系统登录记录</span></a></li>
+						</ul>
+					</li>
+					<li class="openable bg-palette4">
+						<a href="#">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-tags fa-lg"></i></span>
+										<span class="text m-left-sm">日志管理</span>
+										<span class="submenu-icon"></span>
+									</span>
+							<span class="menu-content-hover block">
+										日志
+									</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="log.html"><span class="submenu-label">日志管理</span></a></li>
+						</ul>
+					</li>
+					<li class="openable bg-palette3">
+						<a href="#">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-gift fa-lg"></i></span>
+										<span class="text m-left-sm">子系统管理</span>
+										<span class="submenu-icon"></span>
+									</span>
+							<span class="menu-content-hover block">
+										子系统管理
+									</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="project.html"><span class="submenu-label">子系统管理</span></a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="sidebar-fix-bottom clearfix">
+
+				<a href="loginPage.html" class="pull-right font-18"><i class="ion-log-out"></i></a>
+			</div>
+		</div>
+	</aside>
+
+	<div class="main-container">
+		<div class="padding-md">
+			<ul class="breadcrumb">
+				<li><span class="primary-font"><i class="icon-home"></i></span><a href="index.html"> 用户管理</a></li>
+
+			</ul>
+
+			<div>
+				<!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>-->
+				<!-- 模态框（Modal） -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="myModalLabel">添加子系统</h4>
+							</div>
+
+							<form class="form-horizontal" role="form" style="padding: 10px" id="projectFormId">
+								<fieldset>
+									<legend>配置数据源</legend>
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="ds_host">子系统域名</label>
+										<div class="col-sm-4">
+											<input class="form-control" id="ds_host" name="clientDomain" type="text"
+												   placeholder="https://192.168.1.161"/>
+										</div>
+										<label class="col-sm-2 control-label" for="ds_name">子系统端口</label>
+										<div class="col-sm-4">
+											<input class="form-control" id="ds_name" name="clientPort" type="text"
+												   placeholder="8080"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="ds_username">服务端域名</label>
+										<div class="col-sm-4">
+											<input class="form-control" id="ds_username" name="serverDomain" type="text"
+												   placeholder="https://192.168.1.161"/>
+										</div>
+										<label class="col-sm-2 control-label" for="ds_password">服务端端口</label>
+										<div class="col-sm-4">
+											<input class="form-control" id="ds_password" name="serverPort" type="password"
+												   placeholder="80"/>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset>
+									<legend>服务名称</legend>
+									<div class="form-group">
+										<label for="data" class="col-sm-2 control-label">子系统名称</label>
+										<div class="col-sm-10">
+											<input class="form-control" name="projectName" id="data" type="text"
+												   placeholder="该系统名称必须唯一，请慎重填写（finance-route-center）"/>
+										</div>
+									</div>
+								</fieldset>
+
+							</form>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+								</button>
+								<button type="button" onclick="addData()" class="btn btn-primary">
+									提交更改
+								</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal -->
+				</div>
+				</button>
+				<table id="table">
+				</table>
+
+				<div id="toolbar">
+					<form class="form-inline pull-right" id="tableQueryForm">
+						<div class="form-group">
+							用户名：<input type="text" class="form-control" name="username">
+						</div>
+						<div class="form-group">
+							昵称：<input type="text" class="form-control" name="realname" placeholder="">
+						</div>
+						<button id="btn_query" type="button" class="btn btn-default" style="padding:10px">
+							<span aria-hidden="true"></span>查询
+						</button>
+						<button id="btn_clear" type="button" class="btn btn-default" style="padding:10px">
+							<span aria-hidden="true"></span>清空
+						</button>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div><!-- /wrapper -->
+
+<!-- Flot -->
+<script src='../../static/js/jquery.flot.min.js'></script>
+
+<!-- Slimscroll -->
+<script src='../../static/js/jquery.slimscroll.min.js'></script>
+
+<!-- Morris -->
+<script src='../../static/js/rapheal.min.js'></script>
+<script src='../../static/js/morris.min.js'></script>
+
+<!-- Datepicker -->
+<script src='../../static/js/uncompressed/datepicker.js'></script>
+
+<!-- Sparkline -->
+<script src='../../static/js/sparkline.min.js'></script>
+
+<!-- Skycons -->
+<script src='../../static/js/uncompressed/skycons.js'></script>
+
+<!-- Popup Overlay -->
+<script src='../../static/js/jquery.popupoverlay.min.js'></script>
+
+<!-- Easy Pie Chart -->
+<script src='../../static/js/jquery.easypiechart.min.js'></script>
+
+<!-- Sortable -->
+<script src='../../static/js/uncompressed/jquery.sortable.js'></script>
+
+<!-- Owl Carousel -->
+<script src='../../static/js/owl.carousel.min.js'></script>
+
+<!-- Modernizr -->
+<script src='../../static/js/modernizr.min.js'></script>
+
+<!-- Simplify -->
+<script src="../../static/js/simplify/simplify.js"></script>
+<script src="../../static/js/simplify/simplify_dashboard.js"></script>
+<script src="${ctxPath}/static/commonjs/common.js"></script>
+<script>
+    //定义全局变量
+    var tableId = "table";
+    var tableUrl = "${ctxPath}/table/dataGrid";
+    var tableQueryForm = "tableQueryForm";
+    var btnQuery = "btn_query";
+    var btnClear = "btn_clear";
+
+    $(function () {
+        //1.初始化Table
+        var oTable = new TableInit();
+        oTable.Init();
+
+        $("#" + btnQuery).click(function () {
+            $("#" + tableId).bootstrapTable('refresh');
+        });
+        $("#" + btnClear).click(function () {
+            clearForm(tableQueryForm);
+            $("#" + tableId).bootstrapTable('refresh');
+        })
+    });
+
+
+    var TableInit = function () {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function () {
+            $('#' + tableId).bootstrapTable({
+                url: tableUrl,         //请求后台的URL（*）
+                method: 'get',                      //请求方式（*）
+                toolbar: '#toolbar',                //工具按钮用哪个容器
+                striped: true,                      //是否显示行间隔色
+                cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                pagination: true,                   //是否显示分页（*）
+                sortable: false,                     //是否启用排序
+                sortOrder: "asc",                   //排序方式
+                queryParams: oTableInit.queryParams,//传递参数（*）
+                sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                pageNumber: 1,                       //初始化加载第一页，默认第一页
+                pageSize: 10,                       //每页的记录行数（*）
+                pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                search: false,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                strictSearch: true,
+                showColumns: true,                  //是否显示所有的列
+                showRefresh: true,                  //是否显示刷新按钮
+                minimumCountColumns: 2,             //最少允许的列数
+                clickToSelect: true,                //是否启用点击选中行
+                // height: 700,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+                cardView: false,                    //是否显示详细视图
+                detailView: false,
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: 'id',
+                    title: '序号',
+                    align: 'center'
+                }, {
+                    field: 'username',
+                    title: '用户名',
+                    align: 'center'
+                }, {
+                    field: 'realname',
+                    title: '昵称',
+                    align: 'center'
+                }, {
+                    field:'password',
+					title:'密码',
+                    align: 'center'
+				},{
+					field:'isUse',
+					title:'状态',
+                    align: 'center'
+				},{
+                    field:'loginDate',
+                    title:'最近登录时间',
+                    align: 'center',
+                    formatter: function (value, row, index) {
+                        return changeDateFormat(value)
+                    }
+				},{
+                    field:'salt',
+                    title:'盐',
+                    align: 'center'
+				},{
+                    field:'createTime',
+                    title:'创建时间',
+                    align: 'center',
+                    formatter: function (value, row, index) {
+                        return changeDateFormat(value)
+                    }
+				},{
+                    field:'updateTime',
+                    title:'修改时间',
+                    align: 'center',
+                    formatter: function (value, row, index) {
+                        return changeDateFormat(value)
+                    }
+                }
+//                ,
+//					{
+//                    title: '操作',
+//                    field: 'id',
+//                    align: 'center',
+//                    formatter: function (value, row, index) {
+//                        var e = '<button href="#" class="btn btn-primary"  onclick="edit(\'' + row.id + '\')">编辑</button> ';
+//                        var d = '<button href="#" class="btn btn-danger"  onclick="del(\'' + row.id + '\')">删除</button> ';
+//                        return e + d;
+//                    }
+//                }
+				]
+            });
+        };
+
+        //得到查询的参数
+        oTableInit.queryParams = function (params) {
+            var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                limit: params.limit,   //页面大小
+                offset: params.offset
+            };
+            //继承表单，进行参数匹配
+            $.extend(temp, getFormJson($("#" + tableQueryForm)));
+            return temp;
+        };
+        return oTableInit;
+    };
+
+    /**
+     * 子系统添加方法
+     */
+    function addData() {
+        var data = $("#projectFormId").serialize();
+        $.ajax({
+            type: "GET",                      //请求类型
+            url: "${ctxPath}/projectSetting/saveProject",           //URL
+            data: data,   //传递的参数
+            ataType: "json",                 //返回的数据类型
+            success: function (data) {          //data就是返回的json类型的数据
+                if (data.status = 200) {
+                    $.download("${ctxPath}/projectSetting/downloadFile", "post", data.data);
+                } else {
+                    alert("系统异常，请联系管理员");
+                }
+
+            },
+            error: function (data) {
+                alert("系统异常，请联系管理员");
+            }
+        });
+    }
+
+    // 定义到jQuery全局变量下-文件下载
+    jQuery.download = function (url, method, filedir) {
+        jQuery('<form action="' + url + '" method="' + (method || 'post') + '">' +  // action请求路径及推送方法
+            '<input type="text" name="fileName" value="' + filedir + '"/>' + // 文件路径
+            '</form>')
+            .appendTo('body').submit().remove();
+        //var newTab = window.open('about:blank')
+        //newTab.location.href = url;
+    };
+    //转换日期格式(时间戳转换为datetime格式)
+    function changeDateFormat(cellval) {
+        var dateVal = cellval + "";
+        if (cellval != null) {
+            var date = new Date(parseInt(dateVal.replace("/Date(", "").replace(")/", ""), 10));
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+            var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+
+            var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+            var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+            var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+
+            return date.getFullYear() + "-" + month + "-" + currentDate + " " + hours + ":" + minutes + ":" + seconds;
+        }
+    }
+</script>
+</body>
+</html>

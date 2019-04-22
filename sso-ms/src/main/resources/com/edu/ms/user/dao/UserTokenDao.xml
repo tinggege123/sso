@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.edu.ms.user.dao.UserTokenDao" >
+
+    <resultMap id="BaseResultMap" type="com.edu.ms.user.po.UserTokenPO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="server_session_id" property="serverSessionId" jdbcType="VARCHAR" />
+        <result column="token" property="token" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, username, server_session_id, token, create_time, update_time
+    </sql>
+
+    <insert id="save" parameterType="com.edu.ms.user.po.UserTokenPO" >
+        insert into t_user_token
+            (id, username, server_session_id, token, create_time, update_time)
+        values
+            (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{serverSessionId,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, now(), now()
+            )
+    </insert>
+
+    <select id="queryByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.user.po.UserTokenPO" >
+        select 
+        <include refid="Base_Column_List" />
+        from t_user_token
+        <where >
+            <if test="username != null" >
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="serverSessionId != null" >
+                and server_session_id = #{serverSessionId,jdbcType=VARCHAR}
+            </if>
+            <if test="token != null" >
+                and token = #{token,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null" >
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null" >
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+        limit 1
+    </select>
+
+    <select id="listByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.user.po.UserTokenPO" >
+        select 
+        <include refid="Base_Column_List" />
+        from t_user_token
+        <where >
+            <if test="username != null" >
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="serverSessionId != null" >
+                and server_session_id = #{serverSessionId,jdbcType=VARCHAR}
+            </if>
+            <if test="token != null" >
+                and token = #{token,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null" >
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null" >
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateById" parameterType="com.edu.ms.user.po.UserTokenPO" >
+        update t_user_token
+        <set >
+            <if test="username != null" >
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="serverSessionId != null" >
+                server_session_id = #{serverSessionId,jdbcType=VARCHAR},
+            </if>
+            <if test="token != null" >
+                token = #{token,jdbcType=VARCHAR},
+            </if>
+            update_time = now(),
+        </set>
+        where id = #{id,jdbcType=BIGINT} 
+    </update>
+
+    <select id="findPage" parameterType="com.edu.ms.user.po.UserTokenPO" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user_token
+        <include refid="queryParams"/>
+        order by id desc
+        <if test="offset != null and limit != null">
+            LIMIT #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="countAll" resultType="java.lang.Integer" parameterType="com.edu.ms.user.po.UserTokenPO">
+        SELECT
+        COUNT(*)
+        from t_user_token
+        <include refid="queryParams"/>
+    </select>
+
+    <sql id="queryParams">
+        <where>
+            <if test="username != null and username != ''">
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="serverSessionId != null and serverSessionId != ''">
+                and server_session_id = #{serverSessionId,jdbcType=VARCHAR}
+            </if>
+            <if test="token != null and token!=''">
+                and token = #{token,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+
+</mapper>

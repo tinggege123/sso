@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+beetl:
+  resource-auto-check: true       #热加载beetl模板
+
+spring:
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /view
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+#WARN:以下的数据都不可以删除，删除项目无法启动，请知悉 - wst
+
+sso:
+  loginStatus: 1          #0：表示单纯使用session,1：表示使用数据库进行登录，2：表示使用redis进行登录。2，3为分布式环境建议在分布式环境下进行
+  cookieStatus: true      #是否开启cookie的单点登录
+  cookieOutOfDate: 3     #cookie过期时间
+  multiUserLogin: 0      #0表示为一位用户只能在一个终端登录，1表示一个用户可以在多个终端登录

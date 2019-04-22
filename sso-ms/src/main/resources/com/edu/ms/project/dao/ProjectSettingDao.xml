@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.edu.ms.project.dao.ProjectSettingDao">
+
+    <resultMap id="BaseResultMap" type="com.edu.ms.project.po.ProjectSettingPO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="project_name" property="projectName" jdbcType="VARCHAR"/>
+        <result column="client_domain" property="clientDomain" jdbcType="VARCHAR"/>
+        <result column="client_port" property="clientPort" jdbcType="VARCHAR"/>
+        <result column="server_domain" property="serverDomain" jdbcType="VARCHAR"/>
+        <result column="server_port" property="serverPort" jdbcType="VARCHAR"/>
+        <result column="public_key" property="publicKey" jdbcType="VARCHAR"/>
+        <result column="private_key" property="privateKey" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, project_name, client_domain, client_port, server_domain, server_port, public_key, private_key, create_time, update_time
+    </sql>
+
+    <insert id="save" parameterType="com.edu.ms.project.po.ProjectSettingPO">
+        insert into t_project_setting
+            (id, project_name, client_domain, client_port, server_domain, server_port, public_key, private_key, create_time, update_time
+            )
+        values
+            (#{id,jdbcType=BIGINT}, #{projectName,jdbcType=VARCHAR}, #{clientDomain,jdbcType=VARCHAR}, #{clientPort,jdbcType=VARCHAR}, #{serverDomain,jdbcType=VARCHAR}, 
+            #{serverPort,jdbcType=VARCHAR}, #{publicKey,jdbcType=VARCHAR}, #{privateKey,jdbcType=VARCHAR}, now(), now())
+    </insert>
+
+    <select id="queryByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.project.po.ProjectSettingPO">
+        select
+        <include refid="Base_Column_List"/>
+        from t_project_setting
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="projectName != null">
+                and project_name = #{projectName,jdbcType=VARCHAR}
+            </if>
+            <if test="clientDomain != null">
+                and client_domain = #{clientDomain,jdbcType=VARCHAR}
+            </if>
+            <if test="clientPort != null">
+                and client_port = #{clientPort,jdbcType=VARCHAR}
+            </if>
+            <if test="serverDomain != null">
+                and server_domain = #{serverDomain,jdbcType=VARCHAR}
+            </if>
+            <if test="serverPort != null">
+                and server_port = #{serverPort,jdbcType=VARCHAR}
+            </if>
+            <if test="publicKey != null">
+                and public_key = #{publicKey,jdbcType=VARCHAR}
+            </if>
+            <if test="privateKey != null">
+                and private_key = #{privateKey,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+        limit 1
+    </select>
+
+    <select id="listByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.project.po.ProjectSettingPO">
+        select
+        <include refid="Base_Column_List"/>
+        from t_project_setting
+        <where>
+            <if test="projectName != null">
+                and project_name = #{projectName,jdbcType=VARCHAR}
+            </if>
+            <if test="clientDomain != null">
+                and client_domain = #{clientDomain,jdbcType=VARCHAR}
+            </if>
+            <if test="clientPort != null">
+                and client_port = #{clientPort,jdbcType=VARCHAR}
+            </if>
+            <if test="serverDomain != null">
+                and server_domain = #{serverDomain,jdbcType=VARCHAR}
+            </if>
+            <if test="serverPort != null">
+                and server_port = #{serverPort,jdbcType=VARCHAR}
+            </if>
+            <if test="publicKey != null">
+                and public_key = #{publicKey,jdbcType=VARCHAR}
+            </if>
+            <if test="privateKey != null">
+                and private_key = #{privateKey,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateById" parameterType="com.edu.ms.project.po.ProjectSettingPO">
+        update t_project_setting
+        <set>
+            <if test="projectName != null">
+                project_name = #{projectName,jdbcType=VARCHAR},
+            </if>
+            <if test="clientDomain != null">
+                client_domain = #{clientDomain,jdbcType=VARCHAR},
+            </if>
+            <if test="clientPort != null">
+                client_port = #{clientPort,jdbcType=VARCHAR},
+            </if>
+            <if test="serverDomain != null">
+                server_domain = #{serverDomain,jdbcType=VARCHAR},
+            </if>
+            <if test="serverPort != null">
+                server_port = #{serverPort,jdbcType=VARCHAR},
+            </if>
+            <if test="publicKey != null">
+                public_key = #{publicKey,jdbcType=VARCHAR},
+            </if>
+            <if test="privateKey != null">
+                private_key = #{privateKey,jdbcType=VARCHAR},
+            </if>
+            update_time = now(),
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="findPage" parameterType="com.edu.ms.project.po.ProjectSettingPO" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_project_setting
+        <include refid="queryParams"/>
+        order by id desc
+        <if test="offset != null and limit != null">
+            LIMIT #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="countAll" resultType="java.lang.Integer" parameterType="com.edu.ms.project.po.ProjectSettingPO">
+        SELECT
+        COUNT(*)
+        from t_project_setting
+        <include refid="queryParams"/>
+    </select>
+
+    <sql id="queryParams">
+        <where>
+            <if test="projectName != null and projectName != ''">
+                and project_name = #{projectName,jdbcType=VARCHAR}
+            </if>
+
+        </where>
+    </sql>
+
+    <delete id="deleteById">
+      delete from t_project_setting where id=#{id}
+    </delete>
+
+</mapper>

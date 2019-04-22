@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>产品</title>
+    <link href="${ctxPath}/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="${ctxPath}/static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="${ctxPath}/static/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel='stylesheet' type='text/css'/>-->
+    <script src="${ctxPath}/static/js/jquery.js"></script>
+    <script src="${ctxPath}/static/myjs/LoginClient.js"></script>
+</head>
+<body>
+<!-- header -->
+<div class="banner1">
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="main" style="font-size: 20px"><img src="${ctxPath}/static/images/ssologo.png"
+                                                             class="img-responsive" alt=""/>单点登录</a>
+            </div>
+            <div class="head-nav">
+                <span class="menu"> </span>
+                <ul>
+                    <li><a href="main">主页</a></li>
+                    <li class="active"><a href="products">产品</a></li>
+                    <li><a href="services">服务</a></li>
+                    <li><a href="javascript:void(0)" onclick="mainLogout()">退出</a></li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <!-- script-for-nav -->
+            <script>
+                $("span.menu").click(function () {
+                    $(".head-nav ul").slideToggle(300, function () {
+                        // Animation complete.
+                    });
+                });
+            </script>
+            <!-- script-for-nav -->
+        </div>
+    </div>
+    <div class="container">
+        <h2>产品尚未成型,敬请期待</h2>
+    </div>
+</div>
+
+<!-- header -->
+<!-- products -->
+<!--<div class="products">-->
+<!--<div class="container">-->
+<!--<div class="col-md-9 product-left">-->
+<!--<div class="prod">-->
+<!--<div class="col-md-3 product-left1">-->
+<!--<img src="images/brand.jpg" class="img-responsive" alt="" />-->
+<!--</div>-->
+<!--<div class="col-md-5 product-left1">-->
+<!--<h4><a href="#">Lorem Ipsum</a></h4>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>-->
+<!--</div>-->
+<!--<div class="col-md-4 product-left1">-->
+<!--<a class="more" href="#">Products</a>-->
+<!--</div>-->
+<!--<div class="clearfix"> </div>-->
+<!--</div>-->
+<!--<div class="prod">-->
+<!--<div class="col-md-3 product-left1">-->
+<!--<img src="images/bcard.jpg" class="img-responsive" alt="" />-->
+<!--</div>-->
+<!--<div class="col-md-5 product-left1">-->
+<!--<h4><a href="#">Lorem Ipsum</a></h4>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>-->
+<!--</div>-->
+<!--<div class="col-md-4 product-left1">-->
+<!--<a class="more" href="#">Products</a>-->
+<!--</div>-->
+<!--<div class="clearfix"> </div>-->
+<!--</div>-->
+<!--<div class="prod">-->
+<!--<div class="col-md-3 product-left1">-->
+<!--<img src="images/brand.jpg" class="img-responsive" alt="" />-->
+<!--</div>-->
+<!--<div class="col-md-5 product-left1">-->
+<!--<h4><a href="#">Lorem Ipsum</a></h4>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>-->
+<!--</div>-->
+<!--<div class="col-md-4 product-left1">-->
+<!--<a class="more" href="#">Products</a>-->
+<!--</div>-->
+<!--<div class="clearfix"> </div>-->
+<!--</div>-->
+<!--<div class="prod">-->
+<!--<div class="col-md-3 product-left1">-->
+<!--<img src="images/bcard.jpg" class="img-responsive" alt="" />-->
+<!--</div>-->
+<!--<div class="col-md-5 product-left1">-->
+<!--<h4><a href="#">Lorem Ipsum</a></h4>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>-->
+<!--</div>-->
+<!--<div class="col-md-4 product-left1">-->
+<!--<a class="more" href="#">Products</a>-->
+<!--</div>-->
+<!--<div class="clearfix"> </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-3 product-right">-->
+<!--<h3>RELATED PRODUCTS</h3>-->
+<!--<div class="product-right1">-->
+<!--<div class="pro">-->
+<!--<img src="images/pho.jpg" class="img-responsive" alt="" />-->
+<!--</div>-->
+<!--<div class="view">-->
+<!--<h5><a href="#">Lorem Ipsum</a></h5>-->
+<!--<h6><a href="#">Add to wish list</a></h6>-->
+<!--<h6><a href="#">Add to cart</a></h6>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="product-right1">-->
+<!--<div class="pro">-->
+<!--<img src="images/bc2.jpg" class="img-responsive" alt="" />-->
+<!--</div>-->
+<!--<div class="view">-->
+<!--<h5><a href="#">Lorem Ipsum</a></h5>-->
+<!--<h6><a href="#">Add to wish list</a></h6>-->
+<!--<h6><a href="#">Add to cart</a></h6>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="clearfix"> </div>-->
+<!--</div>-->
+<!--</div>-->
+<!-- products -->
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <p>Author: shengting_wang From:<a href="https://www.fjnu.edu.cn/" target="_blank" title="福建师范大学">福建师范大学</a></p>
+    </div>
+</div>
+<!-- footer -->
+
+</body>
+</html>

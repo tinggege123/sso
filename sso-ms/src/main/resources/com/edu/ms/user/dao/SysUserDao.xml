@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.edu.ms.user.dao.SysUserDao">
+
+    <resultMap id="BaseResultMap" type="com.edu.ms.user.po.SysUserPO">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="realname" property="realname" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="is_use" property="isUse" jdbcType="VARCHAR"/>
+        <result column="login_date" property="loginDate" jdbcType="TIMESTAMP"/>
+        <result column="salt" property="salt" jdbcType="VARCHAR"/>
+        <result column="token" property="token" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, username, realname, `password`, is_use, login_date, salt, token, create_time, update_time
+    </sql>
+
+    <insert id="save" parameterType="com.edu.ms.user.po.SysUserPO">
+        insert into t_sys_user
+            (id, username, realname, `password`, is_use, login_date, salt, token, create_time, update_time)
+        values
+            (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{isUse,jdbcType=VARCHAR}, 
+            #{loginDate,jdbcType=TIMESTAMP}, #{salt,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, now(), now())
+    </insert>
+
+    <select id="queryByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.user.po.SysUserPO">
+        select
+        <include refid="Base_Column_List"/>
+        from t_sys_user
+        <where>
+            <if test="username != null">
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="realname != null">
+                and realname = #{realname,jdbcType=VARCHAR}
+            </if>
+            <if test="password != null">
+                and `password` = #{password,jdbcType=VARCHAR}
+            </if>
+            <if test="isUse != null">
+                and is_use = #{isUse,jdbcType=VARCHAR}
+            </if>
+            <if test="loginDate != null">
+                and login_date = #{loginDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="salt != null">
+                and salt = #{salt,jdbcType=VARCHAR}
+            </if>
+            <if test="token != null">
+                and token = #{token,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+        limit 1
+    </select>
+
+    <select id="listByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.user.po.SysUserPO">
+        select
+        <include refid="Base_Column_List"/>
+        from t_sys_user
+        <where>
+            <if test="username != null">
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="realname != null">
+                and realname = #{realname,jdbcType=VARCHAR}
+            </if>
+            <if test="password != null">
+                and `password` = #{password,jdbcType=VARCHAR}
+            </if>
+            <if test="isUse != null">
+                and is_use = #{isUse,jdbcType=VARCHAR}
+            </if>
+            <if test="loginDate != null">
+                and login_date = #{loginDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="salt != null">
+                and salt = #{salt,jdbcType=VARCHAR}
+            </if>
+            <if test="token != null">
+                and token = #{token,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateById" parameterType="com.edu.ms.user.po.SysUserPO">
+        update t_sys_user
+        <set>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="realname != null">
+                realname = #{realname,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                `password` = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="isUse != null">
+                is_use = #{isUse,jdbcType=VARCHAR},
+            </if>
+            <if test="loginDate != null">
+                login_date = #{loginDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="salt != null">
+                salt = #{salt,jdbcType=VARCHAR},
+            </if>
+            <if test="token != null">
+                token = #{token,jdbcType=VARCHAR},
+            </if>
+            update_time = now(),
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="findPage" parameterType="com.edu.ms.user.po.SysUserPO" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_sys_user
+        <include refid="queryParams"/>
+        order by id desc
+        <if test="offset != null and limit != null">
+            LIMIT #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="countAll" resultType="java.lang.Integer" parameterType="com.edu.ms.user.po.SysUserPO">
+        SELECT
+        COUNT(*)
+        from t_sys_user
+        <include refid="queryParams"/>
+    </select>
+
+    <sql id="queryParams">
+        <where>
+            <if test="username != null and username != ''">
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="realname != null and realname != ''">
+                and realname = #{realname,jdbcType=VARCHAR}
+            </if>
+            <if test="password != null">
+                and `password` = #{password,jdbcType=VARCHAR}
+            </if>
+            <if test="isUse != null">
+                and is_use = #{isUse,jdbcType=VARCHAR}
+            </if>
+            <if test="loginDate != null">
+                and login_date = #{loginDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="salt != null">
+                and salt = #{salt,jdbcType=VARCHAR}
+            </if>
+            <if test="token != null and token != ''">
+                and token = #{token,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </sql>
+
+</mapper>

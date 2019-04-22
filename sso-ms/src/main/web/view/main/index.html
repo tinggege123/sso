@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>单点登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- 引入bootstrap样式 -->
+    <link href="${ctxPath}/static/tabledata/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap-table样式 -->
+    <link href="${ctxPath}/static/tabledata/bootstrap-table.min.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="${ctxPath}/static/tabledata/jquery.min.js"></script>
+    <script src="${ctxPath}/static/tabledata/bootstrap.min.js"></script>
+
+    <!-- bootstrap-table.min.js -->
+    <script src="${ctxPath}/static/tabledata/bootstrap-table.min.js"></script>
+    <!-- 引入中文语言包 -->
+    <script src="${ctxPath}/static/tabledata/bootstrap-table-zh-CN.min.js"></script>
+    <!-- Font Awesome -->
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- ionicons -->
+    <link href="../../static/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Morris -->
+    <link href="../../static/css/morris.css" rel="stylesheet"/>
+
+    <!-- Datepicker -->
+    <link href="../../static/css/datepicker.css" rel="stylesheet"/>
+
+    <!-- Animate -->
+    <link href="../../static/css/animate.min.css" rel="stylesheet">
+
+    <!-- Owl Carousel -->
+    <link href="../../static/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../static/css/owl.theme.default.min.css" rel="stylesheet">
+
+    <!-- Simplify -->
+    <link href="../../static/css/simplify.min.css" rel="stylesheet">
+
+</head>
+
+<body class="overflow-hidden">
+<div class="wrapper preload">
+    <div class="sidebar-right">
+        <div class="sidebar-inner scrollable-sidebar">
+            <div class="sidebar-header clearfix">
+                <input class="form-control dark-input" placeholder="Search" type="text">
+                <div class="btn-group pull-right">
+                    <a href="#" class="sidebar-setting" data-toggle="dropdown"><i class="fa fa-cog fa-lg"></i></a>
+                    <ul class="dropdown-menu pull-right flipInV">
+                        <li><a href="#"><i class="fa fa-circle text-danger"></i><span class="m-left-xs">Busy</span></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i><span class="m-left-xs">Turn Off Chat</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="title-block">
+                Group Chat
+            </div>
+            <div class="content-block">
+                <ul class="sidebar-list">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-circle-o text-success"></i><span class="m-left-xs">Close Friends</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-circle-o text-success"></i><span class="m-left-xs">Business</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="title-block">
+                Favorites
+            </div>
+            <div class="content-block">
+                <ul class="sidebar-list">
+                    <li>
+                        <a href="#" class="clearfix">
+                            <img src="../../static/images/profile/profile2.jpg" class="img-circle" alt="user avatar">
+                            <div class="chat-detail m-left-sm">
+                                <div class="chat-name">
+                                    John Doe
+                                </div>
+                                <div class="chat-message">
+                                    Where are you?
+                                </div>
+                            </div>
+                            <div class="chat-status">
+                                <i class="fa fa-circle-o text-success"></i>
+                            </div>
+                            <div class="chat-alert">
+                                <span class="badge badge-purple bounceIn animation-delay2">2</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="clearfix">
+                            <img src="../../static/images/profile/profile3.jpg" class="img-circle" alt="user avatar">
+                            <div class="chat-detail m-left-sm">
+                                <div class="chat-name">
+                                    Jane Doe
+                                </div>
+                                <div class="chat-message">
+                                    Hello
+                                </div>
+                            </div>
+                            <div class="chat-status">
+                                <i class="fa fa-circle-o text-success"></i>
+                            </div>
+                            <div class="chat-alert">
+                                <span class="badge badge-info bounceIn animation-delay2">1</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="clearfix">
+                            <img src="../../static/images/profile/profile4.jpg" class="img-circle" alt="user avatar">
+                            <div class="chat-detail m-left-sm">
+                                <div class="chat-name">
+                                    John Doe
+                                </div>
+                                <div class="chat-message">
+                                    See you again next week.
+                                </div>
+                            </div>
+                            <div class="chat-status">
+                                <i class="fa fa-circle-o text-danger"></i>
+                            </div>
+                            <div class="chat-alert">
+                                <i class="fa fa-check text-success"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="clearfix">
+                            <img src="../../static/images/profile/profile5.jpg" class="img-circle" alt="user avatar">
+                            <div class="chat-detail m-left-sm">
+                                <div class="chat-name">
+                                    John Doe
+                                </div>
+                                <div class="chat-message">
+                                    Hello, Are you there?
+                                </div>
+                            </div>
+                            <div class="chat-status">
+                                <i class="fa fa-circle-o text-danger"></i>
+                            </div>
+                            <div class="chat-alert">
+                                <i class="fa fa-reply"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="title-block">
+                More friends
+            </div>
+            <div class="content-block">
+                <ul class="sidebar-list">
+                    <li>
+                        <a href="#" class="clearfix">
+                            <img src="../../static/images/profile/profile6.jpg" class="img-circle" alt="user avatar">
+                            <div class="chat-detail m-left-sm">
+                                <div class="chat-name">
+                                    John Doe
+                                </div>
+                                <div class="chat-message">
+                                    Where are you?
+                                </div>
+                            </div>
+                            <div class="chat-status">
+                                <i class="fa fa-circle-o text-success"></i>
+                            </div>
+                            <div class="chat-alert">
+                                <span class="badge badge-success bounceIn animation-delay2">2</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="clearfix">
+                            <img src="../../static/images/profile/profile7.jpg" class="img-circle" alt="user avatar">
+                            <div class="chat-detail m-left-sm">
+                                <div class="chat-name">
+                                    Jane Doe
+                                </div>
+                                <div class="chat-message">
+                                    Hello
+                                </div>
+                            </div>
+                            <div class="chat-status">
+                                <i class="fa fa-circle-o text-success"></i>
+                            </div>
+                            <div class="chat-alert">
+                                <span class="badge badge-danger bounceIn animation-delay2">1</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="clearfix">
+                            <img src="../../static/images/profile/profile8.jpg" class="img-circle" alt="user avatar">
+                            <div class="chat-detail m-left-sm">
+                                <div class="chat-name">
+                                    John Doe
+                                </div>
+                                <div class="chat-message">
+                                    See you again next week.
+                                </div>
+                            </div>
+                            <div class="chat-status">
+                                <i class="fa fa-circle-o text-danger"></i>
+                            </div>
+                            <div class="chat-alert">
+                                <i class="fa fa-check text-success"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="clearfix">
+                            <img src="../../static/images/profile/profile9.jpg" class="img-circle" alt="user avatar">
+                            <div class="chat-detail m-left-sm">
+                                <div class="chat-name">
+                                    John Doe
+                                </div>
+                                <div class="chat-message">
+                                    Hello, Are you there?
+                                </div>
+                            </div>
+                            <div class="chat-status">
+                                <i class="fa fa-circle-o text-danger"></i>
+                            </div>
+                            <div class="chat-alert">
+                                <i class="fa fa-reply"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- sidebar-inner -->
+    </div><!-- sidebar-right -->
+    <header class="top-nav">
+        <div class="top-nav-inner">
+            <div class="nav-header">
+                <button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleSM">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <ul class="nav-notification pull-right">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog fa-lg"></i></a>
+                        <span class="badge badge-danger bounceIn">1</span>
+                        <ul class="dropdown-menu dropdown-sm pull-right user-dropdown">
+                            <li class="user-avatar">
+                                <img src="../../static/images/ting.jpg" alt="" class="img-circle">
+                                <div class="user-content">
+                                    <h5 class="no-m-bottom">超级管理员</h5>
+                                </div>
+                            </li>
+
+                            <li class="divider"></li>
+                            <li>
+                                <a href="loginPage.html">退出</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <a href="index.html" class="brand">
+                    <i class="fa fa-database"></i><span class="brand-name">SSO</span>
+                </a>
+            </div>
+            <div class="nav-container">
+                <button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleLG">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul class="nav-notification">
+                    <li class="search-list">
+                        <div class="search-input-wrapper">
+                            <div class="search-input">
+                                <input type="text" class="form-control input-sm inline-block">
+                                <a href="#" class="input-icon text-normal"><i class="ion-ios7-search-strong"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="pull-right m-right-sm">
+                    <div class="user-block hidden-xs">
+                        <a href="#" id="userToggle" data-toggle="dropdown">
+                            <img src="../../static/images/ting.jpg" alt=""
+                                 class="img-circle inline-block user-profile-pic">
+                            <div class="user-detail inline-block">
+                                超级管理员
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="panel border dropdown-menu user-panel">
+                            <div class="panel-body paddingTB-sm">
+                                <ul>
+                                    <li>
+                                        <a href="loginPage.html">
+                                            <i class="fa fa-power-off fa-lg"></i><span class="m-left-xs">退出</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- ./top-nav-inner -->
+    </header>
+    <aside class="sidebar-menu fixed">
+        <div class="sidebar-inner scrollable-sidebar">
+            <div class="main-menu">
+                <ul class="accordion">
+                    <li class="menu-header">
+                        Main Menu
+                    </li>
+                    <li class="bg-palette1 active">
+                        <a href="index.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-home fa-lg"></i></span>
+										<span class="text m-left-sm">主页</span>
+									</span>
+                            <span class="menu-content-hover block">
+										主页
+									</span>
+                        </a>
+                    </li>
+                    <li class="bg-palette2">
+                        <a href="user.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-desktop fa-lg"></i></span>
+										<span class="text m-left-sm">用户管理</span>
+									</span>
+                            <span class="menu-content-hover block">
+										用户
+									</span>
+                        </a>
+                    </li>
+                    <li class="openable bg-palette3">
+                        <a href="#">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
+										<span class="text m-left-sm">登录记录管理</span>
+										<span class="submenu-icon"></span>
+									</span>
+                            <span class="menu-content-hover block">
+										记录
+									</span>
+                        </a>
+                        <ul class="submenu bg-palette4">
+                            <li><a href="userToken.html"><span class="submenu-label">登录记录</span></a></li>
+                            <li><a href="loginHistory.html"><span class="submenu-label">各子系统登录记录</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="openable bg-palette4">
+                        <a href="#">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-tags fa-lg"></i></span>
+										<span class="text m-left-sm">日志管理</span>
+										<span class="submenu-icon"></span>
+									</span>
+                            <span class="menu-content-hover block">
+										日志
+									</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="log.html"><span class="submenu-label">日志管理</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="openable bg-palette3">
+                        <a href="#">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-gift fa-lg"></i></span>
+										<span class="text m-left-sm">子系统管理</span>
+										<span class="submenu-icon"></span>
+									</span>
+                            <span class="menu-content-hover block">
+										子系统管理
+									</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="project.html"><span class="submenu-label">子系统管理</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-fix-bottom clearfix">
+
+                <a href="loginPage.html" class="pull-right font-18"><i class="ion-log-out"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <div class="main-container">
+       <div class="padding-md">
+           <ul class="breadcrumb">
+               <li><span class="primary-font"><i class="icon-home"></i></span><a href="index.html"> 主页</a></li>
+               <li>欢迎界面</li>
+           </ul>
+
+           <div class="alert alert-success alert-dismissible" role="alert">
+               <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+               <i class="fa fa-check-circle m-right-xs"></i><strong>尊敬的管理员</strong> 欢迎您回到单点登录中后台管理系统
+           </div>
+
+       </div>
+    </div><!-- /main-container -->
+
+    <!--<footer class="footer">-->
+				<!--<span class="footer-brand">-->
+					<!--<strong class="text-danger">Simplify</strong> Admin-->
+				<!--</span>-->
+        <!--<p class="no-margin">-->
+            <!--&copy; 2014 <strong>Simplify Admin</strong>. ALL Rights Reserved.-->
+        <!--</p>-->
+    <!--</footer>-->
+</div><!-- /wrapper -->
+
+
+<!-- Jquery -->
+<script src="../../static/js/jquery-1.11.1.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Flot -->
+<script src='../../static/js/jquery.flot.min.js'></script>
+
+<!-- Slimscroll -->
+<script src='../../static/js/jquery.slimscroll.min.js'></script>
+
+<!-- Morris -->
+<script src='../../static/js/rapheal.min.js'></script>
+<script src='../../static/js/morris.min.js'></script>
+
+<!-- Datepicker -->
+<script src='../../static/js/uncompressed/datepicker.js'></script>
+
+<!-- Sparkline -->
+<script src='../../static/js/sparkline.min.js'></script>
+
+<!-- Skycons -->
+<script src='../../static/js/uncompressed/skycons.js'></script>
+
+<!-- Popup Overlay -->
+<script src='../../static/js/jquery.popupoverlay.min.js'></script>
+
+<!-- Easy Pie Chart -->
+<script src='../../static/js/jquery.easypiechart.min.js'></script>
+
+<!-- Sortable -->
+<script src='../../static/js/uncompressed/jquery.sortable.js'></script>
+
+<!-- Owl Carousel -->
+<script src='../../static/js/owl.carousel.min.js'></script>
+
+<!-- Modernizr -->
+<script src='../../static/js/modernizr.min.js'></script>
+
+<!-- Simplify -->
+<script src="../../static/js/simplify/simplify.js"></script>
+<script src="../../static/js/simplify/simplify_dashboard.js"></script>
+</body>
+</html>

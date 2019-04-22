@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.edu.ms.log.dao.LogHistoryDao">
+
+    <resultMap id="BaseResultMap" type="com.edu.ms.log.po.LogHistoryPO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="opearte" property="opearte" jdbcType="VARCHAR"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, opearte, username, content, create_time, update_time
+    </sql>
+
+    <insert id="save" parameterType="com.edu.ms.log.po.LogHistoryPO">
+        insert into t_log_history
+            (id, opearte, username, content, create_time, update_time)
+        values
+            (#{id,jdbcType=BIGINT}, #{opearte,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, now(), now())
+    </insert>
+
+    <select id="queryByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.log.po.LogHistoryPO">
+        select
+        <include refid="Base_Column_List"/>
+        from t_log_history
+        <where>
+            <if test="opearte != null">
+                and opearte = #{opearte,jdbcType=VARCHAR}
+            </if>
+            <if test="username != null">
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="content != null">
+                and content = #{content,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+        limit 1
+    </select>
+
+    <select id="listByCondition" resultMap="BaseResultMap" parameterType="com.edu.ms.log.po.LogHistoryPO">
+        select
+        <include refid="Base_Column_List"/>
+        from t_log_history
+        <where>
+            <if test="opearte != null">
+                and opearte = #{opearte,jdbcType=VARCHAR}
+            </if>
+            <if test="username != null">
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="content != null">
+                and content = #{content,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateById" parameterType="com.edu.ms.log.po.LogHistoryPO">
+        update t_log_history
+        <set>
+            <if test="opearte != null">
+                opearte = #{opearte,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            update_time = now(),
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findPage" parameterType="com.edu.ms.log.po.LogHistoryPO" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_log_history
+        <include refid="queryParams"/>
+        order by id desc
+        <if test="offset != null and limit != null">
+            LIMIT #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="countAll" resultType="java.lang.Integer" parameterType="com.edu.ms.log.po.LogHistoryPO">
+        SELECT
+        COUNT(*)
+        from t_log_history
+        <include refid="queryParams"/>
+    </select>
+
+    <sql id="queryParams">
+        <where>
+            <if test="username != null and username != ''">
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="opearte != null and opearte != ''">
+                and opearte = #{opearte,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+</mapper>
